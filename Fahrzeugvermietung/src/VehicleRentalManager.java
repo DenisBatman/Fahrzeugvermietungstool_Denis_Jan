@@ -1,3 +1,5 @@
+import vehicles.Vehicle;
+
 import exceptions.DenylistedPersonException;
 import exceptions.LeaseLengthCollisionException;
 import exceptions.MinorAgeException;

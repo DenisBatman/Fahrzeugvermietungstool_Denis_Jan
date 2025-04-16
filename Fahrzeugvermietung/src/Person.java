@@ -22,5 +22,27 @@ public class Person {
         return birthYear;
     }
 
-    // Weitere Getter/Setter optional
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBirthYear(LocalDate birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 }

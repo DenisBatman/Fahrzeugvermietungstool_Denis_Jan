@@ -1,3 +1,5 @@
+import vehicles.Vehicle;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -34,5 +36,35 @@ public class Contract {
         return endDate;
     }
 
-    // Weitere Getter/Setter optional
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getTerms() {
+        return terms;
+    }
+
+    public void setTerms(String terms) {
+        this.terms = terms;
+    }
+
+    public UUID getContractId() {
+        return contractId;
+    }
+
+    public void setContractId(UUID contractId) {
+        this.contractId = contractId;
+    }
 }
