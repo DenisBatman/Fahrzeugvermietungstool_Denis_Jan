@@ -1,3 +1,7 @@
+import exceptions.DenylistedPersonException;
+import exceptions.LeaseLengthCollisionException;
+import exceptions.MinorAgeException;
+
 import java.util.*;
 
 public class VehicleRentalManager {
