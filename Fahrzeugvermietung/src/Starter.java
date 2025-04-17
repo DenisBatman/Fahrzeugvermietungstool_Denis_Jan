@@ -3,24 +3,24 @@ import java.time.LocalDate;
 
 public class Starter {
     public static void main(String[] args) {
-        VehicleRentalManager manager = new VehicleRentalManager();
+        VehicleRentalManagerImpl manager = new VehicleRentalManagerImpl();
 
         // Test persons
-        Person p1 = new Person("Denis", "Suciu", LocalDate.of(2006, 9, 10));  // 18 years old
-        Person p2 = new Person("Jan", "Ludwig", LocalDate.of(2008, 4, 12)); // 16 years old (too young)
+        PersonImpl p1 = new PersonImpl("Denis", "Suciu", LocalDate.of(2006, 9, 10));  // 18 years old
+        PersonImpl p2 = new PersonImpl("Jan", "Ludwig", LocalDate.of(2008, 4, 12)); // 16 years old (too young)
 
         manager.addPerson(p1);
         manager.addPerson(p2);
 
         // Test vehicles
-        Vehicle car1 = new Kleinwagen("BMW", "M3 E46", 343 , 5, "ZH1234", true, false, 410 );
-        Vehicle car2 = new Luxuswagen("Mercedes", "S-Class", 250, 4, "ZH5678", true, true, "Premium");
+        Vehicle car1 = new SmallCar("BMW", "M3 E46", 343 , 5, "ZH1234", true, false, 410 );
+        Vehicle car2 = new LuxuryCar("Mercedes", "S-Class", 250, 4, "ZH5678", true, true, "Premium");
 
         manager.addVehicle(car1);
         manager.addVehicle(car2);
 
         // Valid contract
-        Contract validContract = new Contract(p1, car1, LocalDate.of(2025, 5, 1), LocalDate.of(2025, 5, 10), "Standard terms");
+        ContractImpl validContract = new ContractImpl(p1, car1, LocalDate.of(2025, 5, 1), LocalDate.of(2025, 5, 10), "Standard terms");
 
         try {
             manager.createContract(validContract);
@@ -30,7 +30,7 @@ public class Starter {
         }
 
         // Invalid contract – person too young
-        Contract underageContract = new Contract(p2, car2, LocalDate.of(2025, 6, 1), LocalDate.of(2025, 6, 5), "Luxury terms");
+        ContractImpl underageContract = new ContractImpl(p2, car2, LocalDate.of(2025, 6, 1), LocalDate.of(2025, 6, 5), "Luxury terms");
 
         try {
             manager.createContract(underageContract);
@@ -40,10 +40,10 @@ public class Starter {
         }
 
         // Denylist the person
-        manager.addPersonToDenylist(p1.getId());
+        manager.addPersonToDenyList(p1.getId());
 
         // Invalid contract – person is denylisted
-        Contract deniedContract = new Contract(p1, car2, LocalDate.of(2025, 6, 10), LocalDate.of(2025, 6, 15), "Denylist test");
+        ContractImpl deniedContract = new ContractImpl(p1, car2, LocalDate.of(2025, 6, 10), LocalDate.of(2025, 6, 15), "Denylist test");
 
         try {
             manager.createContract(deniedContract);
@@ -53,7 +53,7 @@ public class Starter {
         }
 
         // Invalid contract – overlaps with existing contract
-        Contract overlappingContract = new Contract(p1, car1, LocalDate.of(2025, 5, 5), LocalDate.of(2025, 5, 12), "Overlap test");
+        ContractImpl overlappingContract = new ContractImpl(p1, car1, LocalDate.of(2025, 5, 5), LocalDate.of(2025, 5, 12), "Overlap test");
 
         try {
             manager.createContract(overlappingContract);

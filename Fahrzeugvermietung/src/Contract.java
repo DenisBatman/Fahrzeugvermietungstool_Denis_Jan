@@ -3,68 +3,30 @@ import vehicles.Vehicle;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Contract {
-    private Person person;
-    private Vehicle vehicle;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private String terms;
-    private UUID contractId;
+ public interface Contract {
+     PersonImpl getPerson();
 
-    public Contract(Person person, Vehicle vehicle, LocalDate startDate, LocalDate endDate, String terms) {
-        this.person = person;
-        this.vehicle = vehicle;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.terms = terms;
-        this.contractId = UUID.randomUUID();
-    }
+     Vehicle getVehicle();
 
-    public Person getPerson() {
-        return person;
-    }
+     LocalDate getStartDate();
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
+     LocalDate getEndDate();
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
+     void setPerson(PersonImpl person);
 
-    public LocalDate getEndDate() {
-        return endDate;
-    }
+     void setVehicle(Vehicle vehicle);
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
+     void setStartDate(LocalDate startDate);
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
+     void setEndDate(LocalDate endDate);
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
+     String getTerms();
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
+     void setTerms(String terms);
 
-    public String getTerms() {
-        return terms;
-    }
+     UUID getContractId();
 
-    public void setTerms(String terms) {
-        this.terms = terms;
-    }
+     void setContractId(UUID contractId);
+ }
+    
 
-    public UUID getContractId() {
-        return contractId;
-    }
-
-    public void setContractId(UUID contractId) {
-        this.contractId = contractId;
-    }
-}

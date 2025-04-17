@@ -1,48 +1,24 @@
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Person {
-    private String firstName;
-    private String lastName;
-    private LocalDate birthYear;
-    private UUID id;
+ public interface Person {
+     UUID getId();
 
-    public Person(String firstName, String lastName, LocalDate birthYear) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthYear = birthYear;
-        this.id = UUID.randomUUID();
-    }
+     LocalDate getBirthYear();
 
-    public UUID getId() {
-        return id;
-    }
+     String getFirstName();
 
-    public LocalDate getBirthYear() {
-        return birthYear;
-    }
+     void setFirstName(String firstName);
 
-    public String getFirstName() {
-        return firstName;
-    }
+     String getLastName();
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+     void setLastName(String lastName);
 
-    public String getLastName() {
-        return lastName;
-    }
+     void setBirthYear(LocalDate birthYear);
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+     void setId(UUID id);
 
-    public void setBirthYear(LocalDate birthYear) {
-        this.birthYear = birthYear;
-    }
+ }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-}
+
+
